@@ -1,0 +1,24 @@
+h1 登録コント一覧
+
+table
+  thead
+    tr
+      th コント名
+      th 人数
+      th きっかけ
+      th 小道具・衣裳
+      th お披露目
+  tbody
+    / - @contelist.each do |conte|
+      tr
+        td = conte.name
+        td = conte.people
+        td = conte.trigger
+        td = conte.props_costumes
+        td = conte.debut
+    tr 
+      td テスト
+      td 2
+      td 無
+      td 有
+      td 未披露
