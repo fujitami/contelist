@@ -1,0 +1,20 @@
+// Sassy
+
+// .main {
+//   margin: 20px;
+//   padding: 20px;
+//   border-radius: 5px;
+//   background-color: #f567ae;
+// }
+
+h1 {
+  color: #0f0f0f;
+  font-size: 34px;
+}  
+
+p {
+  color: #333fff;
+  font-size: 16px;
+}
+
+@use 'views';
