@@ -1,4 +1,4 @@
-a href="/" トップページへ
+= link_to 'トップページへ', root_path
 
 h1 登録コント一覧
 
@@ -11,16 +11,10 @@ table
       th 小道具・衣裳
       th お披露目
   tbody
-    / - @contelist.each do |conte|
+    - @contes.each do |conte|
       tr
-        td = conte.name
+        td = conte.title
         td = conte.people
         td = conte.trigger
         td = conte.props_costumes
         td = conte.debut
-    tr 
-      td テスト
-      td 2
-      td 無
-      td 有
-      td 未披露
