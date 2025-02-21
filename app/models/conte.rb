@@ -1,0 +1,2 @@
+class Conte < ApplicationRecord
+end
