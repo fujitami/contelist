@@ -1,0 +1,13 @@
+= link_to 'トップページへ', root_path
+
+h1 登録コント一覧
+
+/ 各項目はこの画面で表示されないが、絞り込みができるようにしたい
+table.conte_index
+  thead
+    tr
+      th コント名
+  tbody
+    - @contes.each do |conte|
+      tr
+        td = link_to conte.title, conte_path(conte)
