@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    models:
+      # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
+      conte: コント
+    # model毎に定義したいattributesを記述
+    attributes:
+        conte:
+          id: ID
+          title: コント名
+          people: 人数
+          trigger: きっかけ
+          props_costumes: 小道具・衣装
+          debut: お披露目
+  # 全てのmodelで共通して使用するattributesを定義
+  attributes:
+    created_at: 作成日
+    updated_at: 更新日
