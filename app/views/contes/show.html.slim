@@ -1,0 +1,14 @@
+h1 登録コント詳細
+
+div.conte_show
+  h2 #{@conte.title}
+  li 人数: #{@conte.people}
+  li きっかけ: #{@conte.trigger}
+  li 小道具・衣装: #{@conte.props_costumes}
+  li お披露目: #{@conte.debut}
+
+  p 最終編集日: #{@conte.updated_at}
+
+/ = link_to '編集', edit_conte_path(@conte)
+
+= link_to '登録コント一覧へ', contes_path

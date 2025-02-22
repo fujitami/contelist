@@ -1,0 +1,2 @@
+module ContesHelper
+end
