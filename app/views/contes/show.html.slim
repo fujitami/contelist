@@ -9,6 +9,7 @@ div.conte_show
 
   p 最終編集日: #{@conte.updated_at}
 
-/ = link_to '編集', edit_conte_path(@conte)
-
+p
+= link_to '編集', edit_conte_path(@conte)
+p
 = link_to '登録コント一覧へ', contes_path

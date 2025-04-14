@@ -8,10 +8,24 @@ class ContesController < ApplicationController
   end
 
   def create
-    if Conte.create(conte_params)
-      redirect_to contes_path
+    @conte = Conte.new(conte_params)
+    if @conte.save
+      redirect_to contes_path, notice: 'Conte was successfully created.'
     else
-      render 'new'
+      render 'new', alert: 'Failed to create Conte.'
+    end
+  end
+
+  def edit
+    @conte = Conte.find_by(id: params[:id])
+  end
+
+  def update
+    @conte = Conte.find_by(id: params[:id])
+    if @conte.update(conte_params)
+      redirect_to conte_path(@conte), notice: 'Conte was successfully updated.'
+    else
+      render 'edit', alert: 'Failed to update Conte.'
     end
   end
 

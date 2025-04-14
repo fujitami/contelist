@@ -1,0 +1,24 @@
+h1 コント情報編集
+
+div.conte_edit
+  = form_with model: @conte, local: true do |f|
+    div.field_conte_title
+      = f.label t '.title'
+      = f.text_field :title
+    div.field_conte_people
+      = f.label t '.people'
+      = f.text_field :people
+    div.field_conte_trigger
+      = f.label t '.trigger'
+      = f.text_field :trigger
+    div.field_conte_props_costumes
+      = f.label t '.props_costumes'
+      = f.text_field :props_costumes
+    div.field_conte_debut
+      = f.label t '.debut'
+      = f.check_box :debut, include_hidden: false
+
+    div.actions
+      = f.submit '編集する'
+
+= link_to '登録コント一覧へ', contes_path
