@@ -1,15 +1,23 @@
-h1 登録コント詳細
-
-div.conte_show
-  h2 #{@conte.title}
-  li 人数: #{@conte.people}
-  li きっかけ: #{@conte.trigger}
-  li 小道具・衣装: #{@conte.props_costumes}
-  li お披露目: #{@conte.debut}
-
-  p 最終編集日: #{@conte.updated_at}
+h1 = @conte.title
 
 p
-= link_to '編集', edit_conte_path(@conte)
+  | 人数: 
+  = @conte.people
+
 p
-= link_to '登録コント一覧へ', contes_path
+  | きっかけ: 
+  = @conte.trigger
+
+p
+  | 小道具・衣装: 
+  = @conte.props_costumes
+
+p
+  | お披露目: 
+  = @conte.debut
+
+= link_to '編集', edit_conte_path(@conte), class: 'btn btn-primary'
+= ' '
+= link_to '削除', conte_path(@conte), method: :delete, data: { confirm: t('contes.show.Are you sure?') }, class: 'btn btn-danger'
+br
+= link_to '一覧に戻る', contes_path, class: 'btn btn-secondary'

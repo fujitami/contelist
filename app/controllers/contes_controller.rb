@@ -33,7 +33,17 @@ class ContesController < ApplicationController
     @conte = Conte.find_by(id: params[:id])
   end
 
+  def destroy
+    @conte = Conte.find_by(id: params[:id])
+    if @conte&.destroy
+      redirect_to contes_path, notice: 'Conte was successfully deleted.'
+    else
+      redirect_to contes_path, alert: 'Failed to delete Conte.'
+    end
+  end
+
   private
+
   def conte_params
     params.require(:conte).permit(:title, :people, :trigger, :props_costumes, :debut)
   end
