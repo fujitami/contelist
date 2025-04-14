@@ -1,7 +1,9 @@
 ja:
   contes:
     index:
+      Are you sure?: 本当に削除しますか？
     show:
+      Are you sure?: 本当に削除しますか？
     new:
       title: コント名
       people: 人数

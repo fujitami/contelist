@@ -9,7 +9,12 @@ table.conte_index
   thead
     tr
       th コント名
+      th 操作
   tbody
     - @contes.each do |conte|
       tr
         td = link_to conte.title, conte_path(conte)
+        td
+          = link_to '編集', edit_conte_path(conte), class: 'btn btn-primary'
+          = ' '
+          = link_to '削除', conte_path(conte), method: :delete, data: { confirm: t('contes.index.Are you sure?') }, class: 'btn btn-danger'
