@@ -4,17 +4,33 @@ h1 登録コント一覧
 
 = link_to 'コント新規登録', new_conte_path
 
+p 
+
+.tags_container 
+  - if @tags.present?
+    .tags 頻出タグ(上位10個)
+    - @tags.each do |tag|
+      / todo: タグのリンクを作成
+      / 例: = link_to "#{tag.name} (#{tag.taggings_count})", tag_path(tag)
+      / 上記例ではtag_pathに由来するNoMethodErrorが発生する
+      = link_to "#{tag.name} (#{tag.taggings_count})"
+      - if tag != @tags.last
+        = ', '
+
+p 
+
 / 各項目はこの画面で表示されないが、絞り込みができるようにしたい
-table.conte_index
-  thead
-    tr
-      th コント名
-      th 操作
-  tbody
-    - @contes.each do |conte|
+.contes_index_container
+  table.conte_index
+    thead
       tr
-        td = link_to conte.title, conte_path(conte)
-        td
-          = link_to '編集', edit_conte_path(conte), class: 'btn btn-primary'
-          = ' '
-          = link_to '削除', conte_path(conte), method: :delete, data: { confirm: t('contes.index.Are you sure?') }, class: 'btn btn-danger'
+        th コント名
+        th 操作
+    tbody
+      - @contes.each do |conte|
+        tr
+          td = link_to conte.title, conte_path(conte)
+          td
+            = link_to '編集', edit_conte_path(conte), class: 'btn btn-primary'
+            = ' '
+            = link_to '削除', conte_path(conte), method: :delete, data: { confirm: t('contes.index.Are you sure?') }, class: 'btn btn-danger'

@@ -16,6 +16,10 @@ p
   | お披露目: 
   = @conte.debut
 
+p
+  | タグ: 
+  = @conte.tags.join(', ')
+
 = link_to '編集', edit_conte_path(@conte), class: 'btn btn-primary'
 = ' '
 = link_to '削除', conte_path(@conte), method: :delete, data: { confirm: t('contes.show.Are you sure?') }, class: 'btn btn-danger'
