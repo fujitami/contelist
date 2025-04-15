@@ -1,6 +1,7 @@
 class ContesController < ApplicationController
   def index
     @contes = Conte.all.order(created_at: :desc)
+    @tags = ActsAsTaggableOn::Tag.most_used(10)
   end
 
   def new
@@ -31,6 +32,7 @@ class ContesController < ApplicationController
 
   def show
     @conte = Conte.find_by(id: params[:id])
+    @tags = @conte.tag_counts_on(:tags)
   end
 
   def destroy
@@ -45,6 +47,6 @@ class ContesController < ApplicationController
   private
 
   def conte_params
-    params.require(:conte).permit(:title, :people, :trigger, :props_costumes, :debut)
+    params.require(:conte).permit(:title, :people, :trigger, :props_costumes, :debut, :tag_list)
   end
 end
